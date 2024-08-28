@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../assets/images/bg.jpg");
+    background-position: center center;
+    background-size: 100% 100%;
+}
+.slider{
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),url("../assets/images/slide1.jpg");
+    background-size: 100% 100%;
+    background-position: center center;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+.slide{
+    width: 25%;
+    transform: translateY(27%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    /* background-color: red; */
+    text-align: center;
+}
+.moveDown{
+    animation: moveDown 12s forwards;
+}
+.moveUp{
+    animation: moveUp 12s forwards;
+}
+.slide:hover{
+    animation-play-state: paused;
+}
+@keyframes moveDown {
+    0%{
+        transform: translateY(27%);
+    }
+    100%{
+        transform: translateY(-27%);
+    }
+}
+@keyframes moveUp {
+    0%{
+        transform: translateY(-27%);
+    }
+    100%{
+        transform: translateY(27%);
+    }
+}
+
+
+.slide img{
+    width: 100%;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    opacity: 80%;
+    position: relative;
+}
+.slide img:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+.dots{
+    width: 20%;
+    display: flex;
+    column-gap: 10px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+}
+.active-dots{
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.dots .dot{
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.dots .dot:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.arrows{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.arrows i{
+    font-size: 1.875rem;
+    background-color: beige;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 15px;
+    color: #0f181b9a;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.arrows i:hover{
+    color:beige ;
+    background-color: #0F181B;
+}
+
+
+
+.slide i:nth-child(1),.slide i:nth-child(2){
+    padding-block: 15px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    font-size: 1.875rem;
+    width: 100%;
+}
+.slide i:nth-child(1){
+    background-image: linear-gradient(to bottom,rgb(255, 255, 255),rgba(255, 255, 255, 0) );
+    top: 0;
+}
+.slide i:nth-child(2){
+    background-image: linear-gradient(rgba(255, 255, 255, 0.0) ,rgba(255, 255, 255, 0.677));
+    bottom: 0;
+}
+
+@media screen and (max-width:480px) {
+    html{
+        font-size: 10px;
+    }
+    .dots{
+        width: 90%;
+    }
+    .dots .dot{
+        width: 15px;
+        height: 15px;
+    }
+    .slide{
+        width: 30%;
+        transform: translateY(0%) !important;
+    }
+    .slide i:nth-child(1),.slide i:nth-child(2){
+        display: none;
+    }
+}
+@media screen and (min-width:480px) and (max-width:768px) {
+    html{
+        font-size: 10px;
+    }
+    .dots{
+        width: 90%;
+    }
+    .dots .dot{
+        width: 15px;
+        height: 15px;
+    }
+    .slide{
+        width: 20%;
+        transform: translateY(0%) !important;
+    }
+    .slide i:nth-child(1),.slide i:nth-child(2){
+        display: none;
+    }
+}
+@media screen and (min-width:768px) and (max-width:992px) {
+    html{
+        font-size: 14px;
+    }
+    .dots{
+        width: 90%;
+    }
+    .dots .dot{
+        width: 20px;
+        height: 20px;
+    }
+    .slide{
+        width: 18%;
+        transform: translateY(0%) !important;
+    }
+    .slide i:nth-child(1),.slide i:nth-child(2){
+        display: none;
+    }
+}
